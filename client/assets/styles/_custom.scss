@@ -1,0 +1,35 @@
+@import 'variables';
+
+/*-----------------BOOTSTRAP CUSTOMS--------------------|
+| This styles sheet focuses on customizing the styles   |
+| in bootstrap so we can maintain consistent styles     |
+|-----------------------------------------------------*/
+
+
+$brand-primary:         $blue;
+$brand-info:            $light-blue;
+$brand-success:         $blue;
+$brand-warning:         $orange;
+$brand-danger:          $orange;
+
+
+$gray-base:             $black;
+$gray-darker:           $dark-gray;
+$gray-dark:             $gray;
+$gray:                  $light-gray;
+$gray-light:            $lightest-gray;
+$gray-lighter:          $white;
+
+
+$body-bg:               $white;
+
+$font-family-sans-serif: Montserrat-Regular;
+$font-family-serif: Montserrat-Regular;
+
+//custom navbar
+$bgDefault      : $dark-gray;
+$bgHighlight    : $gray;
+$colDefault     : $light-gray;
+$colHighlight   : $lightest-gray;
+$dropDown       : false;
+

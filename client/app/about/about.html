@@ -1,0 +1,27 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>About this Project</h1>
+  </div>
+</header>
+<body ng-controller="aboutController">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1 col-md-10">
+        <br>
+        <h3 class="center black">Product Description and Purpose</h3>
+        <section class="center">{{aboutController.aboutData.description}}</section>
+        <br>
+        <h3 class="center black">Contributors and Contact Information</h3>
+          <table class="center">
+            <tr ng-repeat="x in aboutController.aboutData.contributors">
+              <td class="black"><img src= {{x.image}} title = {{x.name}} style= "width:48px;height:48px;"></td>
+              <td class="black">{{x.name}}</td>
+              <td class="black"><a href="mailto:{{x.email}}" class="link"><u>{{x.email}}</u></a></td>
+              <td class="black">{{x.bio}}</td>
+            </tr>
+          </table>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>

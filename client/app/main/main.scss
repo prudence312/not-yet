@@ -1,0 +1,75 @@
+main {
+  .signup {
+    background: $orange;
+    color: $white;
+    font-size: 18px;
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .navbar-text {
+    margin-left: 15px;
+  }
+
+  .step{
+    padding: 64px 0;
+    h2{
+      color: $white;
+    }
+    p{
+      color: $lightest-gray;
+    }
+    a{
+      color: $orange;
+    }
+    .content{
+      padding: 32px 64px 32px 32px;
+    }
+    &#step-one{
+      background-color: $light-blue;
+      background-image: -webkit-linear-gradient(30deg, $light-blue 60%, $lightest-blue 40%);
+    }
+    &#step-two{
+      background-color: $blue;
+      background-image: -webkit-linear-gradient(-210deg, $blue 60%, $lightest-blue 40%);
+    }
+    &#step-three{
+      background-color: $light-blue;
+      background-image: -webkit-linear-gradient(30deg, $light-blue 60%, $lightest-blue 40%);
+    }
+    img{
+      width: 100%;
+      max-height: 256px;
+      display: block;
+      margin: auto;
+    }
+    .left{
+      float: left;
+    }
+    .right{
+      float: right;
+      text-align: right;
+    }
+  }
+
+  .intro{
+    text-align: center;
+    padding-bottom: 120px;
+    h2{
+      padding: 64px;
+      color: $black;
+      font-weight: bold;
+    }
+    img{
+      padding-bottom: 64px;
+    }
+    .demo{
+      display: block;
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+}
+
+
+

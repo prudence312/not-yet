@@ -1,0 +1,18 @@
+<div id="student-card" ng-click="studentCardController.expandSudentCard()">
+  <div class="studentPic h-100 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+  <img class="h-100 w-100 profile" src="{{studentCardController.getGravatar(studentCardController.user)}}">
+  </div>
+  <div class="studentName h-100 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+  <p class="text-center">{{studentCardController.user.name}}</p>
+  </div>
+
+</div>
+<div  ng-if="studentCardController.expanded"  class="student-card-info">
+
+  <div class="expandedInfo h-100 w-100 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <p class="text-center studentEmail font-weight-light w-100">Email: {{studentCardController.user.email}}</p>
+    <p class="text-center studentAge font-weight-light w-100">Age: {{studentCardController.user.bio.age}}</p>
+    <p class="text-center studentSchool font-weight-light w-100">School: {{studentCardController.user.bio.school}}</p>
+  </div>
+
+</div>

@@ -1,0 +1,103 @@
+teacher-course-data{
+#banner {
+h1{
+font-size: calc(50px+2vw);
+}
+height: 50% !important;
+}
+#studentList{
+max-height: 300px;
+padding: 5px;
+margin: auto;
+#paddedList{
+max-height: 290px;
+overflow: scroll;
+margin-top: 10px;
+}
+#studentListHeader{
+margin-top: 0px;
+padding: 5px;
+border-color: $blue;
+border-radius: 10px 10px 0px 0px;
+background-color: $blue;
+color: white;
+font-weight: 250;
+margin-bottom: 1px;
+}
+}
+button {
+background-color: $orange !important;
+padding: 10px !important;
+border-radius: 10px;
+border-width: 0px;
+font-size: 16px !important;
+color: white;
+text-align: center;
+margin: 0 auto;
+&:hover{
+      background-color: $blue !important;
+
+    }
+}
+.dataButton{
+margin-top: 15px;
+margin-bottom: 15px;
+}
+#banner{
+z-index: 1;
+h1{
+position: relative;
+z-index: 2;
+}
+.profile{
+object-fit: cover;
+border-width: 0px;
+}
+}
+.info{
+p{
+font-size: 20px;
+}
+}
+.svg{
+padding: 10px;
+}
+.carousel-inner{
+height: calc(350px + 20vw);
+}
+#carousel{
+.nvd3-svg{
+height: calc(250px + 20vw);
+width: calc(250px + 30vw) !important;
+
+}
+}
+.outterCarousel{
+background-color: grey;
+height: calc(350px + 20vw);
+margin-bottom: 20px;
+}
+
+.statisticCard{
+}
+.slide{
+
+h1{
+font-size: calc(10px + 2.5vw);
+max-width: 100%;
+max-height: 35px;
+}
+margin: auto;
+}
+#big-statistic{
+.nvd3-svg{
+height: calc(350px + 20vw);
+}
+}
+.small-statistics{
+.nvd3-svg{
+height: calc(200px + 20vw);
+width: 100%;
+}
+}
+}

@@ -1,0 +1,96 @@
+teacher-course{
+.courseInfoBlockProfile{
+margin-top: 25px;
+padding: 10px;
+background-color: $lightest-gray;
+border-radius: 15px;
+p{
+font-size: 20px;
+}
+}
+.courseInfoBlock{
+padding-top: 15px;
+p{
+font-size: 20px;
+}
+.coursePageTeacherName{
+font-weight: 20px;
+margin-top: 10px;
+}
+}
+.courseTitle{
+z-index: 5;
+height: 70px;
+color:white;
+background-color: $gray;
+margin-top: 0px;
+h1{
+margin-top: 0px;
+}
+
+}
+#banner{
+height: 100px !important;
+z-index: 1;
+h1{
+position: relative;
+z-index: 2;
+}
+}
+.dataButton {
+background-color: $orange !important;
+padding: 10px !important;
+border-radius: 10px;
+border-width: 0px;
+font-size: 16px !important;
+color: white;
+text-align: center;
+margin: 0 auto;
+&:hover{
+      background-color: $blue !important;
+
+    }
+}
+#buttonContainer{
+  margin-top: 15px;
+ text-align: center !important;
+}
+#studentList{
+max-height: 300px;
+padding: 5px;
+margin-top: 10px;
+.baseCaseStudentCard{
+background-color: $lightest-gray;
+padding: 5px;
+}
+#paddedList{
+max-height: 290px;
+overflow: scroll;
+margin-top: 10px;
+}
+#studentListHeader{
+margin-top: 0px;
+padding: 5px;
+border-color: $blue;
+border-radius: 10px 10px 0px 0px;
+background-color: $blue;
+color: white;
+font-weight: 250;
+margin-bottom: 1px;
+}
+
+}
+.profile{
+width: 100%;
+max-width: 250px;
+object-fit: cover;
+position: relative;
+z-index: 5;
+}
+.assignmentCardContainer{
+margin-top: 15px;
+}
+.category{
+margin-top: 15px;
+}
+}

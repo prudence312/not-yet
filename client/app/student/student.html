@@ -1,0 +1,30 @@
+<header class="hero-unit banner-large" id="banner">
+  <div class="container">
+    <div class="studentBanner">
+      <div class="imgdiv">
+        <img class="profile" src={{studentController.gravatarUrl}} />
+        <button ng-click="studentController.openModal(studentController.gravatarUrl)">
+          <i class="fa fa-edit fa-inverse"></i>
+        </button>
+      </div>
+      <h1>{{studentController.student.name}}</h1>
+      <h3>Age: {{studentController.studentBio.age}}</h3>
+      <h3>School: {{studentController.studentBio.school}}</h3>
+    </div>
+  </div>
+</header>
+
+<div class="student-container">
+  <div class="col-xs-12 student-discovery">
+    <a href="/student/course">
+      <h2>
+        <u>Course Discovery</u>
+      </h2>
+    </a>
+  </div>
+  <div class="col-xs-12">
+    <div ng-repeat="aCourse in studentController.courses" class="center-block">
+      <course-card mycourse="aCourse"></course-card>
+    </div>
+  </div>
+</div>

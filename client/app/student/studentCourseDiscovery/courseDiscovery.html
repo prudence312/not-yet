@@ -1,0 +1,14 @@
+<header class="hero-unit banner-small" id="banner">
+  <div class="container">
+    <typeahead submit="courseDiscoveryController.filterCourse(value)" values="courseDiscoveryController.searchItems"></typeahead>
+  </div>
+</header>
+<br>
+<div class="container">
+
+</div>
+
+
+<div ng-repeat="aCourse in courseDiscoveryController.selectedCourses">
+  <course-card mycourse="aCourse"></course-card>
+</div>

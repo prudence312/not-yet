@@ -1,0 +1,15 @@
+
+  <div class="assignment-card">
+    <div class="card-header text-white">
+      <h3 class="card-title">{{assignmentCardController.assignment.title}}</h3>
+    </div>
+    <div class="card-body">
+      <h4 class="card-text">{{assignmentCardController.assignment.description}}</h4>
+      <p>Min problem:{{assignmentCardController.assignment.minNumProblems}}</p>
+      <p>Max problem:{{assignmentCardController.assignment.maxNumProblems}}</p>
+      <div class="text-center">
+        <button ng-disabled = "!(assignmentCardController.istailored)" class="btn btn-primary goButton" ng-click="assignmentCardController.redirect()">Go</button>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,52 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h2>Assignment for {{assignmentController.course.name}}</h2>
+  </div>
+</header>
+<br>
+<!-- <a href="/student/course/{{assignmentController.course._id}}">
+  <h4>Back</h4>
+</a> -->
+<div class = "container">
+  <div class="row">
+
+    <div class="left-nav navbar navbar-inverse col-lg-3 col-md-12">
+      <div class="scroll">
+        <ul class=" nav navbar-nav">
+          <li class="left-nav-header">
+            <h3>{{assignmentController.course.name}}</h3>
+          </li>
+          <li class="left-nav-assign-item" ng-class="{highlight: assignmentController.isProblem(aProblem.number)}" ng-repeat="aProblem in assignmentController.problemObjects">
+            <a href="#" ng-click="assignmentController.changeProblem(aProblem.number)">
+              <div class="col-xs-12">
+                <h4 class="problem-text"><i class="fa fa-ok-circle"></i> Problem {{$index + 1}}</h4></span>
+                </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!--There is a nested row in the problem container to reduce the size of
+        the offset by bootstrap -->
+    <div class="problem-container col-lg-9 col-md-12 ">
+      <div class="row">
+        <div class="col-lg-offset-1 col-lg-11 col-md-offset-1 col-md-12">
+          <problem-card myproblemspecific="assignmentController.selectedProblem.specific"
+                        myproblemgeneral="assignmentController.selectedProblem.overview"
+                        myuserid="assignmentController.userId"
+                        myproblemid="assignmentController.problemId"
+                        ischanged="assignmentController.isChanged"></problem-card>
+          <div class = "nav-button-container">
+            <div class = "row col-xs-12">
+              <button ng-click="assignmentController.left()" class="btn left-button"><i class="fa fa-angle-left"></i></button>
+              <h3 class="nav-button-number" style="color: black">{{assignmentController.selectedProblem.number + 1}}</h3>
+              <button ng-click="assignmentController.right()" class="btn right-button"><i class="fa fa-angle-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

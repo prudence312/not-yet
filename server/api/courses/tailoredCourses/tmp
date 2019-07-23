@@ -1,0 +1,64 @@
+// No more attempts left, return an error
+      if (problem.attempts.length >= problem.numberOfAllowedAttempts) {
+        return res.status(401).json({
+          result: 'exceeded attempts',
+          numberOfAllowedAttempts: problem.numberOfAllowedAttempts,
+          numberOfAttempts: problem.attempts.length
+        });
+      }
+
+      var attemptString = String(req.body.latexSol);
+      var submissionExpr = global.KAS.parse(attemptString).expr; //submitted answer
+      var solAsLatex = global.MathLex.render(problem.problem.solution.math, 'latex');
+      var solutionExpr = global.KAS.parse(solAsLatex).expr; //stored solution
+
+      console.log('-------------------------------------------------------------------');
+      console.log(attemptString);
+      console.log(submissionExpr);
+      console.log(solAsLatex);
+      console.log(solutionExpr);
+      console.dir(solutionExpr);
+      console.log('====================================================================');
+
+      if (!submissionExpr) {
+        logger.error('Invalid submission detected: ' + attemptString);
+        return res.status(400).json({error: "ERROR in submission: " + attemptString});
+      }
+
+      if (!solutionExpr) {
+        logger.error('Invalid solution detected: ' + solAsLatex);
+        return res.status(500).json({error: "ERROR in solution: " + problem.problem.solution.math})
+      }
+
+      var correct = global.KAS.compare(submissionExpr, solutionExpr).equal;
+
+      /* Save the attempt to our database. Once for the problem and again for our statistics table */
+      problem.attempts.push({attempt: String(req.body)});
+      problem.save();
+      assignment.save();
+      tailoredCourse.save();
+
+      var submission = new Submission({
+        problemId: req.params.problemId,
+        assignmentId: req.params.assignmentId,
+        courseId: req.params.courseId,
+        studentId: req.params.courseId,
+        attemptNum: problem.attempts.length,
+        correct: correct
+      });
+
+      /* Return response based on correctness */
+      if (correct) {
+        return res.send({
+          result: 'success',
+          numberOfAllowedAttempts: problem.numberOfAllowedAttempts,
+          numberOfAttempts: problem.attempts.length
+        });
+      }
+      else {
+        return res.send({
+          result: 'failure',
+          numberOfAllowedAttempts: problem.numberOfAllowedAttempts,
+          numberOfAttempts: problem.attempts.length
+        });
+      }

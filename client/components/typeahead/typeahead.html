@@ -1,0 +1,8 @@
+<div class='container-fluid typeahead'>
+    <div class="row" id="searchBar">
+      <div class="searchContainer">
+          <input  class="searchInput col-xs-11" type="text" placeholder="Search for a class name or something..." ng-model="typeaheadController.selected" uib-typeahead="value for value in typeaheadController.values | filter:$viewValue | limitTo:8" class="form-control">
+          <button type="button" class="submitButton btn btn-primary col-xs-1" value="Search" ng-click="typeaheadController.submit({value: typeaheadController.selected}); typeaheadController.clear()"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>

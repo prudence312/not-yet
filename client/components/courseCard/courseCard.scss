@@ -1,0 +1,17 @@
+course-card {
+  .infoButton {
+    align-self: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    background-color: $orange;
+    border-width: 0;
+
+    &:hover {
+      background-color: $blue;
+    }
+
+  }
+}

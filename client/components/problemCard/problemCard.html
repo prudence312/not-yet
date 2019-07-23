@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.css" integrity="sha384-VEnyslhHLHiYPca9KFkBB3CMeslnM9CzwjxsEbZTeA21JBm7tdLwKoZmCt3cZTYD" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<div class="container problem-card">
+  <div class="card-header-problem text-black">
+    <h2 style="vertical-align: middle;">{{problemCardController.myproblemgeneral.instructions}}</h2>
+  </div>
+
+  <div class="description-problem-problem">
+    <span id="problemDisplay-problem"></span>
+  </div>
+
+  <div id="mathquill" style="margin-top: 30px;">
+    <p style="height: 50px;"><span id="math-field" ng-model="problemCardController.userInput"></span></p>
+  </div>
+
+  <div class="submit-button-problem">
+
+    <button ng-click="problemCardController.submitSolution();" class="submitButton" ng-disabled="problemCardController.remainingAttempts == 0">SUBMIT</button>
+    <div uib-alert ng-repeat="alert in problemCardController.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="problemCardController.closeAlert($index)" dismiss-on-timeout="5000">{{alert.msg}}</div>
+  </div>
+
+  <div>
+    <strong>Remaining attempts: {{problemCardController.remainingAttempts}}</strong>
+  </div>
+
+  <br> <br>
+
+  <div class="operator-buttons" style="margin-bottom: 50px;">
+    <button class="button-toggler col-md-12 col-lg-4" ng-click="problemCardController.click('basic_operators_isClicked')"> Basic Operators </button>
+    <button class="button-toggler col-md-12 col-lg-4" ng-click="problemCardController.click('constants_isClicked')"> Constants </button>
+    <button class="button-toggler col-md-12 col-lg-4" ng-click="problemCardController.click('logical_isClicked')"> Logical Connectives </button>
+    <div class="operators-container" ng-show="problemCardController.basic_operators_isClicked">
+      <button class="btn btn-default col-xs-1" id="sqrt-button" type="button" ng-click="problemCardController.mathQuill('sqrt')"> &#8730; </button>
+      <button class="btn btn-default col-xs-2" id="plus-button" type="button" ng-click="problemCardController.mathQuill('plus')"> &#43; </button>
+      <button class="btn btn-default col-xs-2" id="mult-button" type="button" ng-click="problemCardController.mathQuill('mult')"> &#42; </button>
+      <button class="btn btn-default col-xs-2" id="div-button" type="button" ng-click="problemCardController.mathQuill('div')"> &#47; </button>
+      <button class="btn btn-default col-xs-2" id="equals-button" type="button" ng-click="problemCardController.mathQuill('equals')"> &#61; </button>
+      <button class="btn btn-default col-xs-2" id="greater-button" type="button" ng-click="problemCardController.mathQuill('greater')"> &#62; </button>
+      <button class="btn btn-default col-xs-1" id="less-button" type="button" ng-click="problemCardController.mathQuill('less')"> &#60; </button>
+    </div>
+    <div class="constants-container" ng-show="problemCardController.constants_isClicked">
+      <button class="btn btn-default col-xs-2" id="pi-button" type="button" ng-click="problemCardController.mathQuill('pi')"> &#960; </button>
+      <button class="btn btn-default col-xs-2" id="e-button" type="button" ng-click="problemCardController.mathQuill('e')"> e </button>
+      <button class="btn btn-default col-xs-2" id="infinity-button" type="button" ng-click="problemCardController.mathQuill('infinity')"> &#x221e; </button>
+      <button class="btn btn-default col-xs-2" id="i-button" type="button" ng-click="problemCardController.mathQuill('i')"> i </button>
+      <button class="btn btn-default col-xs-2" id="zeta-button" type="button" ng-click="problemCardController.mathQuill('zeta')"> &zeta; </button>
+      <button class="btn btn-default col-xs-2" id="tau-button" type="button" ng-click="problemCardController.mathQuill('tau')"> &#964; </button>
+
+    </div>
+    <div class="logical-container" ng-show="problemCardController.logical_isClicked">
+      <button class="btn btn-default col-xs-3" id="rightarrow-button" type="button" ng-click="problemCardController.mathQuill('rightarrow')"> &#8594; </button>
+      <button class="btn btn-default col-xs-3" id="leftarrow-button" type="button" ng-click="problemCardController.mathQuill('leftarrow')"> &#8592; </button>
+      <button class="btn btn-default col-xs-3" id="forall-button" type="button" ng-click="problemCardController.mathQuill('forall')"> &#8704; </button>
+      <button class="btn btn-default col-xs-3" id="exists-button" type="button" ng-click="problemCardController.mathQuill('exists')"> &#8707; </button>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+

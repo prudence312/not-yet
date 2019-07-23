@@ -1,0 +1,26 @@
+<div class="teacherCourseCard">
+  <div id="courseCards">
+    <div ng-repeat="course in teacherCourseCardController.courses">
+      <div class="container col-md-4 col-lg-4 col-sm-12">
+        <div class="card" id="{{course.name}}">
+          <div class="card-header">
+            <h3 class="card-title">{{course.name}}</h3>
+          </div>
+          <div class="card-body">
+            <h5 class="card-text text-center">{{course.description}}</h5>
+          </div>
+          <div class="card-content">
+            <p>
+              <strong>Subjects: </strong> {{course.subjects}}</p>
+            <p>
+              <strong>Categories: </strong> {{course.categories}}</p>
+          </div>
+          <a  href="/teacher/course/{{course._id}}" class="btn btn-primary infoButton">More Info</a>
+        </div>
+      </div>
+    </div>
+    <div id="coursePadding" class="col-xs-12"></div>
+  </div>
+
+  </div>
+</div>

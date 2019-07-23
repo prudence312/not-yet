@@ -1,0 +1,37 @@
+.close-button{
+background: rgba(black, 0.3);
+border-radius: 50%;
+border-style: hidden;
+
+fill: white;
+&:hover{
+		background: rgba(black, 0.6);
+		}
+}
+.modal-dialogue{
+border-style: hidden;
+}
+.modal-content{
+border-style: hidden;
+}
+
+.modal-header{
+background: $blue;
+color: $white;
+}
+
+
+div .panel-heading {
+background: $blue;
+h4{
+color: dark-gray ;
+}
+&:hover{
+		color: black;
+		}
+}
+.modal-body{
+h3{
+color: gray;
+}
+}

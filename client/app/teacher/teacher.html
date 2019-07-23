@@ -1,0 +1,17 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <div class="studentBanner">
+      <img class="profile" src={{teacherController.gravatarUrl}} />
+      <h1>{{teacherController.teacher.name}}</h1>
+    </div>
+  </div>
+</header>
+
+<div class="teacher-container ">
+  <div class="w-100">
+    <center>
+      <button ng-click="teacherController.createModal()">Create Course</button>
+    </center>
+    <teacher-course-card courses="teacherController.courses"></teacher-course-card>
+  </div>
+</div>

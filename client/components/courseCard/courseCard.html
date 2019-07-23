@@ -1,0 +1,16 @@
+<div class="container col-md-4 col-lg-4 col-sm-12">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">{{courseCardController.mycourse.name}}</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-text">{{courseCardController.mycourse.description}}</h5>
+    </div>
+    <div class="card-content">
+      <p><strong>Subjects: </strong> {{courseCardController.mycourse.subjects}}</p>
+      <p><strong>Categories: </strong> {{courseCardController.mycourse.categories}}</p>
+  </div>
+    <a href="/student/course/{{courseCardController.mycourse._id}}" class="btn btn-primary infoButton">More Info</a>
+  </div>
+</div>
+

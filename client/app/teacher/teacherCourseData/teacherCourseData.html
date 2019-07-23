@@ -1,0 +1,96 @@
+<div class="hero-unit banner-medium" id="banner">
+  <h1>{{teacherCourseDataController.course.name}}</h1>
+</div>
+
+<div class="container center-block">
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+      <div class="container info">
+        <br>
+        <a href="/teacher/course/{{teacherCourseDataController.course._id}}"><button class="dataButton">Back to Class</button></a>
+        <br>
+        <p class="title">Teacher: {{teacherCourseDataController.course.teacher.name}} Jon Snow</p>
+        <p class="courseDescription">{{teacherCourseDataController.course.description}}</p>
+      </div>
+    </div>
+
+    <div id="studentList" class="col-lg-3 col-md-4 col-sm-6 col-xs-10">
+      <div id="paddedList">
+      <h1 class="text-center" id="studentListHeader">Students</h1>
+      <div ng-repeat="student in teacherCourseDataController.students">
+        <student-card user="student"></student-card>
+      </div>
+      </div>
+    </div>
+    <hr class="blue-line">
+
+
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <h1 style="margin-left:25px">Statistics</h1>
+      <hr class="hidden-md hidden-lg">
+      <div id="carousel" class="outterCarousel hidden-sm hidden-xs">
+        <div uib-carousel active=0 no-wrap="false" class="justify-content-center innerCarousel">
+          <div uib-slide index=0 class="slide">
+            <h1>Completed Problems</h1>
+            <statistics-card options="teacherCourseDataController.options1" data="teacherCourseDataController.data1"></statistics-card>
+          </div>
+          <div uib-slide index=1 class="slide">
+            <h1>Average Problems Completed</h1>
+            <statistics-card options="teacherCourseDataController.options2" data="teacherCourseDataController.data2"></statistics-card>
+          </div>
+          <div uib-slide index=2 class="slide">
+            <h1>Passing and Failing Students</h1>
+            <statistics-card options="teacherCourseDataController.options3" data="teacherCourseDataController.data3"></statistics-card>
+          </div>
+          <div uib-slide index=3 class="slide">
+            <h1>Overachieving Students</h1>
+            <statistics-card options="teacherCourseDataController.options4" data="teacherCourseDataController.data4"></statistics-card>
+          </div>
+          <div uib-slide index=4 class="slide">
+            <h1>Problem Correctness and Attempts</h1>
+            <statistics-card options="teacherCourseDataController.options5" data="teacherCourseDataController.data5"></statistics-card>
+          </div>
+          <div uib-slide index=5 class="slide">
+            <h1>Catagory Correctness and Attempts</h1>
+            <statistics-card options="teacherCourseDataController.options6" data="teacherCourseDataController.data6"></statistics-card>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="small-statistics hidden-lg hidden-md">
+        <div class="col-12">
+        <h1>Completed Problems</h1>
+        <statistics-card options="teacherCourseDataController.options1" data="teacherCourseDataController.data1"></statistics-card>
+        </div>
+        <div class="col-12">
+          <h1>Average Problems Completed</h1>
+          <statistics-card options="teacherCourseDataController.options2" data="teacherCourseDataController.data2"></statistics-card>
+        </div>
+        <div class="col-12">
+          <h1>Passing and Failing Students</h1>
+          <statistics-card options="teacherCourseDataController.options3" data="teacherCourseDataController.data3"></statistics-card>
+        </div>
+        <div class="col-12">
+          <h1>Overachieving Students</h1>
+          <statistics-card options="teacherCourseDataController.options4" data="teacherCourseDataController.data4"></statistics-card>
+        </div>
+        <div class="col-12">
+          <h1>Problem Correctness and Attempts</h1>
+          <statistics-card id="big-statistic" options="teacherCourseDataController.options5" data="teacherCourseDataController.data5"></statistics-card>
+        </div>
+        <div class="col-12">
+          <h1>Catagory Correctness and Attempts</h1>
+          <statistics-card id="big-statistic" options="teacherCourseDataController.options6" data="teacherCourseDataController.data6"></statistics-card>
+        </div>
+       </div>
+
+    </div>
+
+    <hr class="blue-line">
+
+
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="courseTitle">
+    <h1>{{courseController.course.name}}</h1>
+</div>
+
+<header class="hero-unit banner-medium" id="banner"></header>
+
+<div class="container center-block">
+  <div class="row">
+    <div class="col-lg-4 col-md-12">
+      <figure class="courseFigure">
+        <img class="profile center-block" src="/assets/images/jon_snow.jpg" />
+        <br>
+        <div class="text-center">
+          <span class="title bold">{{courseController.course.name}}</span>
+        </div>
+        <hr class="blue-line">
+        <div class="text-center">
+          <span class="category">Categories: {{courseController.course.categories}}</span>
+        </div>
+        <!--Need an angular variable for number of "spots left" and associated server code-->
+
+        <div class="break"></div>
+        <figcaption>
+          <button class="btn btn-primary center-block" id="enrollbutton" ng-disabled="courseController.isEnrolled" ng-click="courseController.enroll()">Enroll</button>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="col-lg-8 col-md-12">
+      <div class="container info">
+        <div>
+          <span class="title bold">Teacher: {{courseController.course.teacher.name}} Jon Snow</span>
+        </div>
+        <div class="courseDescription">{{courseController.course.description}}</div>
+      </div>
+      <div ng-repeat="anAssignment in courseController.assignments">
+        <assignment-card assignment="anAssignment" courseid="courseController.courseId" istailored="courseController.isTailored"></assignment-card>
+      </div>
+    </div>
+  </div>
+</div>

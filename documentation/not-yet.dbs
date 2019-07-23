@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project_448fe0c" template="Default" database="MongoDb" >
+	<schema name="webprojects-dev" catalogname="webprojects-dev" >
+		<table name="abstractassignments" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="title" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="description" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="minNumProblems" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="maxNumProblems" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="newProblemPercentage" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="numberOfPossibleAttempts" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="abstractcourses" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="description" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="subjects" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="categories" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="assignments" type="array" length="800" decimal="0" jt="2003" mandatory="y" />
+			<column name="teacherId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="users" >
+				<fk_column name="teacherId" pk="_id" />
+			</fk>
+		</table>
+		<table name="problems" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="instructions" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="attempts" type="list" length="800" decimal="0" jt="4999545" mandatory="y" />
+			<column name="numberOfAllowedAttempts" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="problem" type="map" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="solution" type="map" length="800" decimal="0" jt="4999544" mandatory="y" >
+					<column name="math" type="array" length="800" decimal="0" jt="2003" mandatory="y" />
+				</column>
+				<column name="category" type="string" length="800" decimal="0" jt="12" />
+				<column name="subject" type="string" length="800" decimal="0" jt="12" />
+				<column name="depth" type="integer" length="800" decimal="0" jt="4" />
+				<column name="description" type="map" length="800" decimal="0" jt="4999544" >
+					<column name="math" type="array" length="800" decimal="0" jt="2003" />
+				</column>
+				<column name="problemId" type="string" length="800" decimal="0" jt="12" />
+			</column>
+			<column name="version" type="string" length="800" decimal="0" jt="12" />
+			<column name="protocol" type="string" length="800" decimal="0" jt="12" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="sessions" >
+			<column name="_id" type="string" length="800" decimal="0" jt="12" mandatory="y" autoincrement="y" />
+			<column name="session" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="expires" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<index name="expires_1" unique="UNIQUE" >
+				<column name="expires" />
+			</index>
+		</table>
+		<table name="submissions" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="studentId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="problemId" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="assignmentId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="courseId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="attemptNum" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="correct" type="boolean" length="800" decimal="0" jt="16" mandatory="y" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="abstractassignments" >
+				<fk_column name="assignmentId" pk="_id" />
+			</fk>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="abstractcourses" >
+				<fk_column name="courseId" pk="_id" />
+			</fk>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="users" >
+				<fk_column name="studentId" pk="_id" />
+			</fk>
+		</table>
+		<table name="tailoredassignments" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="AbstractAssignmentId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="problems" type="list" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+				<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+				<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+				<column name="__v" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="instructions" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="attempts" type="list" length="800" decimal="0" jt="4999545" mandatory="y" >
+					<column name="attempt" type="string" length="800" decimal="0" jt="12" />
+					<column name="_id" type="oid" length="800" decimal="0" jt="-8" />
+					<column name="correct" type="boolean" length="800" decimal="0" jt="16" />
+					<column name="date" type="date" length="800" decimal="0" jt="91" />
+				</column>
+				<column name="numberOfAllowedAttempts" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="problem" type="map" length="800" decimal="0" jt="4999544" mandatory="y" >
+					<column name="solution" type="map" length="800" decimal="0" jt="4999544" >
+						<column name="math" type="array" length="800" decimal="0" jt="2003" />
+					</column>
+					<column name="category" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+					<column name="subject" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+					<column name="depth" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+					<column name="description" type="map" length="800" decimal="0" jt="4999544" >
+						<column name="math" type="array" length="800" decimal="0" jt="2003" />
+					</column>
+					<column name="problemId" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				</column>
+				<column name="version" type="string" length="800" decimal="0" jt="12" />
+				<column name="protocol" type="string" length="800" decimal="0" jt="12" />
+			</column>
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="abstractassignments" >
+				<fk_column name="AbstractAssignmentId" pk="_id" />
+			</fk>
+		</table>
+		<table name="tailoredcourses" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="subjects" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="categories" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="assignments" type="list" length="800" decimal="0" jt="4999545" />
+			<column name="studentId" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="abstractCourseId" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="abstractcourses" >
+				<fk_column name="abstractCourseId" pk="_id" />
+			</fk>
+			<fk name="Ref" virtual="y" to_schema="webprojects-dev" to_table="users" >
+				<fk_column name="studentId" pk="_id" />
+			</fk>
+		</table>
+		<table name="users" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" autoincrement="y" />
+			<column name="salt" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="updatedAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="createdAt" type="date" length="800" decimal="0" jt="91" mandatory="y" />
+			<column name="provider" type="string" length="800" decimal="0" jt="12" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" />
+			<column name="email" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="password" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="preferences" type="map" length="800" decimal="0" jt="4999544" mandatory="y" >
+				<column name="excellingThreshold" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="failingThreshold" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<column name="role" type="string" length="800" decimal="0" jt="12" />
+			<column name="__v" type="integer" length="800" decimal="0" jt="4" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.dbschema.MongoJdbcDriver" driver_jar="mongojdbc1.2.jar" driver_desc="No Authentication" host="localhost" port="27017" user="admin" />
+	<layout name="Default Layout" id="Layout_58ca7b8" show_relation="columns" >
+		<comment><![CDATA[MongoDb]]></comment>
+		<entity schema="webprojects-dev" name="problems" column="problem" color="BED3F4" x="768" y="336" />
+		<entity schema="webprojects-dev" name="problems" column="problem.solution" color="BED3F4" x="912" y="240" />
+		<entity schema="webprojects-dev" name="problems" column="problem.description" color="BED3F4" x="912" y="336" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem" color="BED3F4" x="768" y="176" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.description" color="BED3F4" x="912" y="176" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems" color="BED3F4" x="480" y="80" />
+		<entity schema="webprojects-dev" name="tailoredassignments" color="C7F4BE" x="288" y="304" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.solution" color="BED3F4" x="736" y="64" />
+		<entity schema="webprojects-dev" name="users" column="preferences" color="C7F4BE" x="512" y="592" />
+		<entity schema="webprojects-dev" name="submissions" color="C7F4BE" x="48" y="528" />
+		<entity schema="webprojects-dev" name="users" color="C7F4BE" x="384" y="464" />
+		<entity schema="webprojects-dev" name="tailoredcourses" color="C7F4BE" x="224" y="496" />
+		<entity schema="webprojects-dev" name="problems" color="BED3F4" x="512" y="304" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.attempts" color="BED3F4" x="704" y="528" />
+		<entity schema="webprojects-dev" name="sessions" color="3986C1" x="928" y="448" />
+		<entity schema="webprojects-dev" name="abstractassignments" color="C7F4BE" x="96" y="48" />
+		<entity schema="webprojects-dev" name="abstractcourses" color="C7F4BE" x="80" y="272" />
+	</layout>
+	<layout name="Sample Layout with Tools" id="Layout_40e8535" show_column_type="y" show_relation="columns" >
+		<entity schema="webprojects-dev" name="abstractassignments" color="C7F4BE" x="48" y="80" />
+		<entity schema="webprojects-dev" name="abstractcourses" color="C7F4BE" x="48" y="336" />
+		<entity schema="webprojects-dev" name="problems" color="BED3F4" x="528" y="336" />
+		<entity schema="webprojects-dev" name="problems" column="problem" color="BED3F4" x="816" y="336" />
+		<entity schema="webprojects-dev" name="problems" column="problem.solution" color="BED3F4" x="992" y="240" />
+		<entity schema="webprojects-dev" name="problems" column="problem.description" color="BED3F4" x="992" y="336" />
+		<entity schema="webprojects-dev" name="sessions" color="3986C1" x="528" y="1808" />
+		<entity schema="webprojects-dev" name="submissions" color="C7F4BE" x="48" y="912" />
+		<entity schema="webprojects-dev" name="tailoredassignments" color="C7F4BE" x="48" y="304" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems" color="BED3F4" x="528" y="336" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.attempts" color="BED3F4" x="816" y="496" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem" color="BED3F4" x="816" y="176" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.solution" color="BED3F4" x="992" y="80" />
+		<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.description" color="BED3F4" x="992" y="176" />
+		<entity schema="webprojects-dev" name="tailoredcourses" color="C7F4BE" x="48" y="560" />
+		<entity schema="webprojects-dev" name="users" color="C7F4BE" x="48" y="1680" />
+		<entity schema="webprojects-dev" name="users" column="preferences" color="C7F4BE" x="224" y="1680" />
+		<callout x="48" y="1584" pointer="NO" >
+			<comment><![CDATA[This is a sample layout with tools. 
+For a better understanding of the database create multiple layouts with the same or different collections. 
+Layouts can contain data or query tools, like the one on the bottom. 
+Layouts are saved together with the database structure to project file. 
+Double-click any collection or field to edit.]]></comment>
+		</callout>
+		<group name="problems" color="ECF0F7" >
+			<entity schema="webprojects-dev" name="tailoredassignments" column="problems" />
+			<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem" />
+			<entity schema="webprojects-dev" name="problems" column="problem" />
+			<entity schema="webprojects-dev" name="tailoredassignments" column="problems.attempts" />
+			<entity schema="webprojects-dev" name="problems" />
+			<entity schema="webprojects-dev" name="problems" column="problem.description" />
+			<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.description" />
+			<entity schema="webprojects-dev" name="problems" column="problem.solution" />
+			<entity schema="webprojects-dev" name="tailoredassignments" column="problems.problem.solution" />
+		</group>
+		<group name="users" color="EEF7EC" >
+			<entity schema="webprojects-dev" name="users" />
+			<entity schema="webprojects-dev" name="submissions" />
+			<entity schema="webprojects-dev" name="abstractcourses" />
+			<entity schema="webprojects-dev" name="tailoredcourses" />
+			<entity schema="webprojects-dev" name="abstractassignments" />
+			<entity schema="webprojects-dev" name="tailoredassignments" />
+			<entity schema="webprojects-dev" name="users" column="preferences" />
+		</group>
+		<script name="Sample Query Editor" id="Editor_4767469" language="SQL" >
+			<string><![CDATA[// PLACE THE CARET OVER EACH LINE AND PRESS EXECUTE ( F8 )
+
+client.getDatabase('webprojects-dev').users.find()
+
+//OR
+
+USE client.getDatabase('webprojects-dev');
+db.users.find()
+
+//OR
+
+USE client.getDatabase('webprojects-dev');
+db.getCollection('users').find()]]></string>
+		</script>
+		<browser id="Browse_34b008d" name="Sample Relational Data Browse" confirm_updates="y" >
+			<browse_table schema="webprojects-dev" entity="users" x="20" y="20" width="400" height="300" record_view="y" >
+				<browse_table schema="webprojects-dev" entity="abstractcourses" fk="Ref" x="440" y="20" width="500" height="350" record_view="y" >
+					<browse_table schema="webprojects-dev" entity="submissions" fk="Ref" x="960" y="20" width="500" height="350" record_view="y" />
+				</browse_table>
+			</browse_table>
+		</browser>
+		<query id="Query_34f839e" name="Sample Query Builder" >
+			<query_table schema="webprojects-dev" name="users" alias="users" x="48" y="48" >
+				<column name="_id" />
+				<column name="salt" />
+				<column name="updatedAt" />
+				<column name="createdAt" />
+				<column name="provider" />
+				<column name="name" />
+				<column name="email" />
+				<column name="password" />
+				<column name="preferences" />
+				<column name="role" />
+				<column name="__v" />
+				<query_table schema="webprojects-dev" name="abstractcourses" alias="abstractcourses" x="240" y="48" fk="Ref" type="Inner Join" >
+					<column name="_id" />
+					<column name="updatedAt" />
+					<column name="createdAt" />
+					<column name="name" />
+					<column name="description" />
+					<column name="subjects" />
+					<column name="categories" />
+					<column name="assignments" />
+					<column name="teacherId" />
+					<column name="__v" />
+					<query_table schema="webprojects-dev" name="submissions" alias="submissions" x="528" y="48" fk="Ref" type="Inner Join" >
+						<column name="_id" />
+						<column name="updatedAt" />
+						<column name="createdAt" />
+						<column name="studentId" />
+						<column name="problemId" />
+						<column name="assignmentId" />
+						<column name="courseId" />
+						<column name="attemptNum" />
+						<column name="correct" />
+						<column name="__v" />
+					</query_table>
+				</query_table>
+			</query_table>
+		</query>
+	</layout>
+</project>

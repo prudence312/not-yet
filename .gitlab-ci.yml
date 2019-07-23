@@ -1,0 +1,69 @@
+image: node:8.9.3
+
+cache:
+  untracked: true
+  key: "$CI_BUILD_REF_NAME"
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - build
+  - develop
+  - production
+
+test:
+  stage: test
+  script:
+    - yarn install
+    - npm test
+  services:
+    - name: mongo:latest
+      alias: mongodb-notyet
+      entrypoint: ['mongod', '--bind_ip', '0.0.0.0', '--smallfiles']
+  variables:
+    MONGODB_URI: 'mongodb://mongodb-notyet/webprojects-test'
+    NODE_ENV: 'test'
+
+build:
+  stage: build
+  script:
+    - yarn global add gulp
+    - yarn install
+    - gulp build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist/
+
+develop:
+  type: deploy
+  stage: develop
+  image: ruby:latest
+  script:
+    - cd dist
+    - git init
+    - git config user.name "GitLab CI/CD"
+    - git config user.email "daniel.pittman@du.edu"
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/not-yet-devel.git
+    - git add .
+    - git commit -m "GitLab CI Build"
+    - git push -f heroku master
+  only:
+    - develop
+
+production:
+  type: deploy
+  stage: production
+  image: ruby:latest
+  script:
+    - cd dist
+    - git init
+    - git config user.name "GitLab CI/CD"
+    - git config user.email "daniel.pittman@du.edu"
+    - git remote add heroku https://heroku:$HEROKU_API_KEY@git.heroku.com/not-yet-prod.git
+    - git add .
+    - git commit -m "GitLab CI Build"
+    - git push -f heroku master
+  only:
+    - master

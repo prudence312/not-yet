@@ -1,0 +1,35 @@
+<div class="modal-header">
+  <h3 class="title" id="modalLabel">{{profileImageModal.title}}</h3>
+</div>
+
+<div class="modal-body">
+  <div class="select-btn-div">
+    <center>
+      <button type="button" class="btn btn-primary" ng-click="profileImageModal.uploadPic()">upload a picture</button>
+      <button type="button" class="btn btn-primary" ng-click="profileImageModal.takePic()">take a picture</button>
+      <button type="button" class="btn btn-primary" ng-click="profileImageModal.fromgravatar()">from gravatar</button>
+    </center>
+  </div>
+
+  <div class="upload-pic-div" ng-show="profileImageModal.isUploadPic"></div>
+
+  <div class="video-div" ng-show="profileImageModal.isVideo">
+    <center>
+      <video id="video" width="360" height="270" autoplay></video>
+    </center>
+    <center>
+      <button type="button" class="btn btn-primary" ng-click="">take a picture</button>
+    </center>
+  </div>
+
+  <div class="gravatar-div" ng-show="profileImageModal.isGravatar">
+    <center>
+      <img src="http:{{profileImageModal.gravatar}}"/>
+    </center>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" ng-click="profileImageModal.save()">Save</button>
+  <button type="button" class="btn btn-secondary" ng-click="profileImageModal.close()">Cancel</button>
+</div>

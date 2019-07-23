@@ -1,0 +1,61 @@
+assignment {
+  .left-nav{
+    background-color: $black;
+    border-radius: 20px;
+    height: 550px;
+    vertical-align: top;
+    overflow-y: auto;
+    margin: 0;
+
+    .nav{
+      margin: 0;
+
+      .left-nav-item{
+        background-color: $blue;
+      }
+    }
+  }
+
+  .left-nav-assign-item {
+    background-color: $dark-gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+  }
+
+  .left-nav-header {
+    background-color: $black;
+    color: $white;
+  }
+
+  .nav-button-container {
+    bottom: 10px;
+    margin: 10px 0px;
+  }
+
+  .nav-button-number {
+    margin: 5px;
+  }
+
+  .left-button {
+    background-color: $orange;
+    color: $white;
+  }
+
+  .right-button {
+    background-color: $orange;
+    color: $white;
+  }
+
+  .highlight {
+    background-color: $blue;
+  }
+
+  .problem-text {
+    color: $white;
+  }
+
+  #banner h2 {
+    color: $black;
+  }
+}

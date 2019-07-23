@@ -1,0 +1,35 @@
+assignment-card{
+.assignment-card {
+  min-height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #EBEBEB;
+  color: $black;
+
+
+.card-header {
+  background-color: $blue;
+  border-color: $blue;
+}
+
+.card-body {
+  text-align: left;
+  border-radius: 10px;
+  height: 80%
+}
+
+.goButton {
+  justify-content: center;
+  vertical-align: middle;
+  border-radius: 10px;
+  width: 80px;
+}
+
+.btn-primary:disabled {
+  background-color: $orange;
+  border-color: $orange;
+}
+}
+}
+

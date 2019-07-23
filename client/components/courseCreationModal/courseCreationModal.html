@@ -1,0 +1,69 @@
+<div class="modal-header">
+  <h3 class="title" id="modalLabel">{{courseCreationModal.title}}</h3>
+</div>
+<div class="modal-body">
+  <form class="col-xs-12" name="validateForm">
+    <div class="col-xs-12">
+      <div role="alert" ng-show="courseCreationModal.formError && !validateForm.$valid" class="alert alert-danger">
+        <i class="fa fa-warning"></i>
+        {{courseCreationModal.formError}}
+      </div>
+      <div role="alert" ng-show="courseCreationModal.formError && validateForm.$valid" class="alert alert-success">
+        All look good!
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <input required="required" placeholder="Class Name" ng-model="courseCreationModal.course.name" class="form-control"/>
+    </div>
+    <div class="col-xs-12 col-sm-6 pull-right">
+      <textarea placeholder="Class Description (optional)" ng-model="courseCreationModal.course.description" class="form-control" rows="5"></textarea>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <select required="required" title="" class="form-control" name="subjectSelect" id="subjectSelect" ng-model="courseCreationModal.course.subjects" ng-change="courseCreationModal.populateCategories()">
+        <option value="" disabled selected>Subject</option>
+        <option ng-repeat="subject in courseCreationModal.subjects" value="{{subject}}">{{subject}}</option>
+      </select>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <select required="required" title="" class="form-control" name="categorySelect" id="categorySelect" ng-model="courseCreationModal.course.categories" ng-disabled="!courseCreationModal.course.subjects">
+        <option value="" disabled selected>Category - {{courseCreationModal.category_hint}}</option>
+        <option ng-repeat="category in courseCreationModal.categories" value="{{category}}">{{category}}</option>
+      </select>
+    </div>
+
+    <uib-accordion class="col-xs-12">
+      <div uib-accordion-group ng-repeat="assignment in courseCreationModal.course.assignments" class="panel-default" is-open="courseCreationModal.accordion_isopen[$index]">
+        <uib-accordion-heading>
+          Assignment {{$index+1}}
+          <i class="fa fa-times pull-right" ng-click="courseCreationModal.removeAssignment($index)"></i>
+        </uib-accordion-heading>
+        <div class="col-xs-12 col-sm-6">
+          <input required="required" placeholder="Title" ng-model="courseCreationModal.course.assignments[$index].title" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-6 pull-right">
+          <textarea placeholder="Assignment Description (optional)" ng-model="courseCreationModal.course.assignments[$index].description" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input required="required" type="number" min="1" max="1000" title="Minimum Number of Problems" placeholder="Minimum Number of Problems" ng-model="courseCreationModal.course.assignments[$index].minNumProblems" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input required="required" type="number" min="1" max="1000" title="Maximum Number of Problems" placeholder="Maximum Number of Problems" ng-model="courseCreationModal.course.assignments[$index].maxNumProblems" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input required="required" type="number" min="0" max="100" title="Percentage of New Problems" placeholder="Percentage of New Problems" ng-model="courseCreationModal.course.assignments[$index].newProblemPercentage" class="form-control" />
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <input required="required" type="number" min="1" max="1000" title="Number of Possible Attempts" placeholder="Number of Possible Attempts" ng-model="courseCreationModal.course.assignments[$index].numberOfPossibleAttempts" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xs-12 text-center">
+        <button type="button" class="btn btn-primary" id="addButton" ng-click="courseCreationModal.addAssignment()">Add Assignment</button>
+      </div>
+    </uib-accordion>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="submit" class="btn btn-primary" ng-click="courseCreationModal.submit()">Create Course</button>
+  <button type="button" class="btn btn-secondary" ng-click="courseCreationModal.close()">Cancel</button>
+</div>

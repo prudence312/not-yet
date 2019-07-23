@@ -1,0 +1,82 @@
+.courseCreationModal{
+    .alert{
+        margin: 0 0 10px 0;
+    }
+
+    input, select{
+        margin: 5px 0;
+    }
+
+    uib-accordion{
+        margin: 5px 0 0 0;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+
+    select.ng-empty{
+        color: #999;
+    }
+
+    textarea {
+        resize: none;
+        margin: 5px 0;
+    }
+
+    .title{
+        color: $black;
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    .subtitle{
+        color: $white;
+        font-size: 18px;
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+
+    #addButton{
+        margin: 15px 0 0 0;
+        width: 40%;
+    }
+
+    .fa-times{
+        color: #d9534f;
+    }
+
+    .modal-content {
+
+        border-radius: 8px;
+
+        .modal-header{
+
+            border-radius: 8px 8px 0 0;
+
+            h3 {
+              color: $white;
+              font-style: normal;
+              font-weight: bold;
+              font-size: 36px;
+            }
+        }
+
+        .modal-footer{
+            border-radius: 0 0 8px 8px;
+        }
+
+        .modal-header,
+        .modal-body,
+        .modal-footer{
+            background-color: $light-blue;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<div class="hero-unit banner-medium" id="banner">
+  <h1> {{teacherCourseController.course.name}}</h1>
+</div>
+<div class="container center-block">
+  <div class="row">
+    <div class="courseInfoBlockProfile col-lg-3 col-md-12">
+
+        <div class="center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <img class="profile center-block" src="/assets/images/jon_snow.jpg" />
+        </div>
+        <p class="coursePageTeacherName text-center title font-weight-bold">Teacher: {{teacherCourseController.course.teacher.name}} Jon Snow</p>
+
+    </div>
+
+    <div class="courseInfoBlock col-lg-6 col-md-8 col-sm-12 col-xs-12">
+      <div>
+        <br>
+        <a href="/teacher"><button class="dataButton justify-left">Back to Classes</button></a>
+        <br>
+        <p class="category font-italic">Categories: {{teacherCourseController.course.categories}}</p>
+        <hr class="blue-line">
+        <p class="courseDescription">{{teacherCourseController.course.description}}</p>
+        <br>
+        <a href="/teacher/course/data/{{teacherCourseController.course._id}}"><button class="dataButton right">Class Data</button></a>
+
+      </div>
+      <br>
+      <hr class="blue-line">
+    </div>
+    <div id="studentList" class="center col-lg-3 col-md-4 col-sm-10 col-xs-12">
+      <div id="paddedList">
+        <h1 class="text-center" id="studentListHeader">Students</h1>
+        <div ng-repeat="student in teacherCourseController.students">
+          <student-card user="student"></student-card>
+          <p class="baseCaseStudentCard font-weight-light text-center" ng-if="teacherCourseController.noStudentsYet">No students have signed up for this course yet</p>
+        </div>
+      </div>
+    </div>
+    <div class="assignmentCardContainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div ng-repeat="anAssignment in teacherCourseController.course.assignments">
+      <assignment-card  class="col-lg-4 col-md-6 col-sm-12 col-xs-12" assignment="anAssignment" courseid="teacherCourseController.courseId" istailored="courseController.isTailored"></assignment-card>
+    </div>
+    </div>
+
+
+
+
+
+</div>
+</div>

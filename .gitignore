@@ -1,0 +1,17 @@
+node_modules
+public
+.tmp
+.idea
+*.iml
+client/bower_components
+client/index.html
+dist
+/server/config/local.env.js
+npm-debug.log
+coverage
+.DS_Store
+/client/assets/fonts/bootstrap
+/client/assets/fonts/font-awesome
+*.swp
+.history
+package-lock.json

@@ -1,0 +1,135 @@
+@import '~mathquill/build/mathquill.css';
+
+problem-card {
+  /*.container {
+    padding: 0px;
+    margin: 0px;
+  }*/
+  button{
+  border-width: 1px;
+  &:hover{
+          background-color: $light-blue !important;
+
+        }
+  }
+  .submitButton{
+  border-width: 0px;
+  border-radius: 10px;
+  &:hover{
+        background-color: $light-blue !important;
+
+      }
+  }
+  .problem-card {
+    text-align: center;
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    background-color: $blue;
+  }
+
+  .card-header-problem {
+    height: 50px;
+    background-color: $blue;
+  }
+
+  .problem-container {
+    border-radius: 10px;
+    background: white;
+    border-color: $blue;
+    color: white;
+    width: 100%;
+    padding: 0px;
+    padding-top: 5%;
+  }
+
+  .description-problem-problem {
+    padding-top: 15px;
+    background-color: white;
+    color: black;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  #problem-input {
+    background-color: white;
+    border-color: $blue;
+    height: 150px;
+    line-height: 150px;
+    color: black;
+    vertical-align: middle;
+  }
+
+  //in description
+  .problemDisplay-problem {
+    text-align: center;
+    top: -55px;
+    position: relative;
+  }
+
+  .text-box-problem {
+    margin-top: 20px;
+    height: 55px;
+  }
+
+  .submit-button-problem {
+    //margin-top: 10px;
+  }
+
+  .operators-container {
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .constants-container {
+    margin: 10px 0px;
+    position: relative;
+  }
+
+  .operators-container {
+    position: relative;
+    margin: 10px 0px;
+  }
+
+  .logical-container {
+    position: relative;
+    margin: 10px 0px;
+  }
+
+  .alert {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    width: 30%;
+    z-index: 100;
+    font-size: 24px;
+  }
+
+  .mq-math-mode .mq-binary-operator {
+    padding: 0 1.2em;
+    display: -moz-inline-box;
+    display: inline-block;
+  }
+
+  .mq-editable-field,
+  .mq-math-mode .mq-editable-field {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    vertical-align: middle;
+    text-align: left;
+    padding-left: 5px;
+    width: 40%;
+    overflow: auto;
+  }
+
+  .mq-math-mode .mq-editable-field.mq-focused {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-color: white;
+    border-radius: 10px;
+  }
+}

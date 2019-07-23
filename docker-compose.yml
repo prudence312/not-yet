@@ -1,0 +1,34 @@
+version: '2'
+volumes:
+  mongodata:
+  nodemodules:
+services:
+  not-yet:
+    build: .
+    image: "not-yet"
+    container_name: "not-yet"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app/not-yet:rw
+      - nodemodules:/app/not-yet/node_modules
+      - ./data/root:/root:rw
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 3002:3002
+      - 9000:9000
+    links:
+      - mongodb-notyet
+    depends_on:
+      - mongodb-notyet
+  mongodb-notyet:
+    image: mongo:latest
+    container_name: "mongodb-notyet"
+    environment:
+      - MONGO_DATA_DIR=/data/db
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles

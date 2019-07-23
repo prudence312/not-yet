@@ -1,0 +1,62 @@
+student {
+  .imgdiv{
+    position:relative;
+    display: inline-block;
+  }
+  button{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    left: 59%;
+    z-index: 6;
+    opacity: 0;
+  }
+  .fa-edit{
+    z-index: 7;
+    font-size: 80px;
+  }
+  .imgdiv:hover button{
+    opacity: 0.9;
+  }
+
+  .studentBanner {
+    height: auto;
+
+    img {
+      display: inline-block;
+    }
+    h1 h3 {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 50px;
+    }
+
+    h3 {
+      color: $black;
+    }
+  }
+
+  .student-discovery {
+    text-align: center;
+  }
+
+  .student-container {
+    background-color: $white;
+    width: 100%;
+    margin: 0;
+  }
+
+  .bioInfo {
+
+    p {
+      font-size: calc(12px + 1.5vw);
+      color: black;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 15px;
+      background-color: $lightest-gray;
+      box-shadow: 0px 5px 12px 0px $gray;
+    }
+  }
+}

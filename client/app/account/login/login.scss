@@ -1,0 +1,41 @@
+login {
+  .login-background {
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url("/assets/images/Banner.png");
+    padding: 20vh 0;
+
+    .container {
+      overflow: auto;
+      float: none;
+      background-color: $blue;
+      color: $white;
+      height: 50%;
+      border-radius: 10px;
+
+      h1 {
+        font-size: 48px;
+        margin: 10px;
+      }
+
+      input {
+        height: 40px;
+        width: 90%;
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      .row {
+        padding: 70px 10px;
+      }
+
+      .btn-login {
+        background-color: $orange;
+        &:hover {
+          background-color: $dark-orange !important;
+        }
+      }
+    }
+  }
+}

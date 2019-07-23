@@ -1,0 +1,60 @@
+<div class="signup-background" align="center">
+  <div class="container col-lg-4 col-sm-6">
+    <div class="row">
+      <div class="col-sm-12">
+        <center>
+          <h1>Sign Up</h1>
+        </center>
+        <div class="col-sm-12">
+          <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+
+            <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,'has-error': form.name.$invalid && vm.submitted }">
+              <input type="text" name="name" placeholder = "Name" class="form-control" ng-model="vm.user.name" required/>
+              <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+                A name is required
+              </p>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted, 'has-error': form.email.$invalid && vm.submitted }">
+              <input type="email" name="email" placeholder="Email" class="form-control" ng-model="vm.user.email" required mongoose-error/>
+              <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+                Doesn't look like a valid email.
+              </p>
+              <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+                What's your email address?
+              </p>
+              <p class="help-block" ng-show="form.email.$error.mongoose">
+                {{ vm.errors.email }}
+              </p>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted, 'has-error': form.password.$invalid && vm.submitted }">
+              <input type="password" name="password" placeholder="Password" class="form-control" ng-model="vm.user.password" ng-minlength="3" required mongoose-error/>
+              <p class="help-block" ng-show="(form.password.$error.minlength || form.password.$error.required) && vm.submitted">
+                Password must be at least 3 characters.
+              </p>
+              <p class="help-block" ng-show="form.password.$error.mongoose">
+                {{ vm.errors.password }}
+              </p>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted, 'has-error': form.confirmPassword.$invalid && vm.submitted }">
+              <input type="password" name="confirmPassword" placeholder="Confirm Password" class="form-control" ng-model="vm.user.confirmPassword" match="vm.user.password" ng-minlength="3" required/>
+              <p class="help-block" ng-show="form.confirmPassword.$error.match && vm.submitted">
+                Passwords must match.
+              </p>
+            </div>
+
+            <div>
+              <button class="btn btn-inverse btn-lg btn-register" type="submit">
+                Sign Up
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

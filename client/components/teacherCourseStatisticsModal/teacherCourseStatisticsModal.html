@@ -1,0 +1,62 @@
+<script>
+function checkRefresh(value)
+{
+    document.form1.submit();
+}
+
+function uncheck(check)
+{
+    var prim = document.getElementById("allcities");
+    var secn = document.getElementById("allfeatured");
+    if (prim.checked == true && secn.checked == true)
+    {
+        if(check == 1)
+        {
+            secn.checked = false;
+            checkRefresh();
+        }
+        else if(check == 2)
+        {
+            prim.checked = false;
+            checkRefresh();
+        }
+    }
+
+}
+</script>
+<div class="modal-content">
+
+<div class="modal-header">
+  <h2 id="myModalLabel" class="modal-title">Statistics for {{teacherCourseStatisticsModal.course.name}}</h2>
+  <button type="button" ng-click="teacherCourseStatisticsModal.cancel()" class="close-button"><span aria-hidden="true">×</span></button>
+
+</div>
+<div class="modal-body">
+  <h3>Click to expand or hide the given catagories</h3>
+  <uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group  class="panel-default">
+      <uib-accordion-heading id="accord-header1">
+        Student Completion Statistics
+      </uib-accordion-heading>
+      <nvd3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12" options="teacherCourseStatisticsModal.data.options1" data="teacherCourseStatisticsModal.data.data1"></nvd3>
+    </div>
+    <div uib-accordion-group class="panel-default" >
+      <uib-accordion-heading  id="accord-header2">
+        Average Problems Completed
+      </uib-accordion-heading>
+      <nvd3 class="col-xs-12 col-sm-12 col-md-12 col-lg-12" options="teacherCourseStatisticsModal.data.options2" data="teacherCourseStatisticsModal.data.data2"></nvd3>
+    </div>
+    <div uib-accordion-group class="panel-default">
+      <uib-accordion-heading id="accord-header3">
+        Passing and Failing Students
+      </uib-accordion-heading>
+      <nvd3 options="teacherCourseStatisticsModal.data.options3" data="teacherCourseStatisticsModal.data.data3"></nvd3>
+    </div>
+  </uib-accordion>
+
+</div>
+<div class="modal-footer">
+
+</div>
+
+</div>
