@@ -46,7 +46,7 @@
     "mathlex_server_friendly": "^1.0.1",
     "mathquill": "^0.10.1-a",
     "method-override": "^2.3.5",
-    "mongoose": "^4.1.2",
+    "mongoose": "^5.7.5",
     "morgan": "^1.8.0",
     "npm": "^5.7.1",
     "nvd3": "^1.8.6",
