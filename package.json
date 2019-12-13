@@ -48,7 +48,7 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.1.2",
     "morgan": "^1.8.0",
-    "npm": "^5.7.1",
+    "npm": "^6.13.4",
     "nvd3": "^1.8.6",
     "passport": "~0.3.0",
     "passport-local": "^1.0.0",
